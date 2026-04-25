@@ -21,9 +21,9 @@ const PARTICIPANTS = [
     stat: "Corporates & PSUs",
   },
   {
-    title: "Faculty & Researchers",
+    title: "Faculty & Researchers of NITJ",
     subtitle: "Academics & Scientists",
-    desc: "Faculty members and research scholars from NITs, IITs, IISc, and other premier institutes looking to forge industry partnerships, secure funding, and publish applied research.",
+    desc: "Faculty members and research scholars of Dr B R Ambedkar National Institute of Technology Jalandhar looking to forge industry partnerships, secure funding, and publish applied research.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
            strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
@@ -31,7 +31,7 @@ const PARTICIPANTS = [
         <path d="M6 12v5c3 3 9 3 12 0v-5"/>
       </svg>
     ),
-    stat: "NITs, IITs & Universities",
+    stat: "NITJ",
   },
   {
     title: "Startups & Innovation Hubs",

@@ -90,9 +90,9 @@ export const PARTICIPANTS = [
     desc: "Experts from reputed organizations across diverse engineering and technology sectors.",
   },
   {
-    title: "Faculty & Researchers",
+    title: "Faculty & Researchers of NITJ",
     icon: "🔬",
-    desc: "Academic researchers and faculty members from NITs, IITs, and other premier institutes.",
+    desc: "Academic researchers and faculty members from Dr B R Ambedkar National Institute of technology Jalandhar",
   },
   {
     title: "Startups & Innovation Hubs",
@@ -132,7 +132,7 @@ export const CONTACT = {
   name: "Dr. Neha Yadav",
   role: "Co-ordinator, Industry-Academia Conclave 2026",
   email: "yadavn@nitj.ac.in",
-  phone: "7310751691",
+  phone: "07310751691",
   organizer: "Dean, Industry & International Affairs",
   institute: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
 };

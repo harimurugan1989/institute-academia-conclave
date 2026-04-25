@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import logo from "../assets/images/logo.png";
 
 const STATS = [
   { value: "2",  label: "Days",             icon: "📅" },
@@ -40,6 +39,7 @@ export default function About() {
 
         {/* Two-column layout */}
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          
           {/* Left — text */}
           <motion.div
             variants={fadeUp}
@@ -59,27 +59,11 @@ export default function About() {
               researchers and industry professionals across diverse engineering disciplines.
             </p>
             <p className="text-[#1A1A2E]/80 font-body text-base leading-relaxed">
-              Organized by the Dean of Industry &amp; International Affairs at NIT Jalandhar,
-              this two-day event will feature keynote talks, technical sessions, panel discussions,
+              This two-day event will feature keynote talks, technical sessions, panel discussions,
               a speed networking event, and an exhibition zone.
             </p>
 
-            {/* Organizer badge */}
-            <div className="flex items-center gap-4 mt-6 bg-white rounded-xl p-4
-                            border border-[#1565C0]/15 shadow-sm">
-              <img src={logo} alt="NITJ" className="h-14 w-14 object-contain flex-shrink-0" />
-              <div>
-                <p className="font-display font-bold text-[#0D2137] text-base">
-                  Dr. B.R. Ambedkar National Institute of Technology
-                </p>
-                <p className="text-[#1565C0] font-body text-sm mt-0.5">
-                  Jalandhar, Punjab (India) · Est. 1987
-                </p>
-                <p className="text-[#1A1A2E]/60 font-body text-xs mt-1">
-                  Institute of National Importance · Ministry of Education, Govt. of India
-                </p>
-              </div>
-            </div>
+            
           </motion.div>
 
           {/* Right — about NITJ card */}
@@ -96,25 +80,47 @@ export default function About() {
                 National Institute of Technology Jalandhar
               </p>
             </div>
+
             <div className="px-6 py-6 space-y-3 text-[#1A1A2E]/75 font-body text-sm leading-relaxed">
               <p>
-                Established in <strong className="text-[#1565C0]">1987</strong> as Regional Engineering College,
-                NIT Jalandhar was granted the status of National Institute of Technology (Deemed University)
-                by the Government of India on <strong className="text-[#1565C0]">October 17, 2002</strong>.
+                Dr. B. R. Ambedkar National Institute of Technology was established in{" "}
+                <strong className="text-[#1565C0]">1987</strong> as a Regional Engineering College.
               </p>
               <p>
-                Declared an Institute of National Importance under the Act of Parliament–2007, the institute
-                offers <strong className="text-[#0D2137]">BTech, MTech, MSc, MBA and PhD</strong> programmes
-                across several disciplines of Engineering, Technology and Sciences.
+                It was granted the status of National Institute of Technology (Deemed University)
+                by the Government of India on{" "}
+                <strong className="text-[#1565C0]">October 17, 2002</strong>, and later declared an{" "}
+                <strong className="text-[#0D2137]">Institute of National Importance</strong> under
+                the Act of Parliament–2007.
               </p>
               <p>
-                A large number of reputed industrial houses visit the institution annually, selecting
-                final year students as Engineers and Management Trainees.
+                As one of the premier NITs, the institute is committed to providing high-quality
+                education in Engineering, Technology, and Sciences, producing competent technical
+                and scientific professionals for the nation.
               </p>
+              <p>
+                The institute offers{" "}
+                <strong className="text-[#0D2137]">BTech, MTech, MSc, MBA, and PhD</strong> programmes
+                across multiple disciplines, with strong industry engagement and excellent placement
+                opportunities.
+              </p>
+
+              <a
+                href="https://www.nitj.ac.in/admin/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[#1565C0] text-xs font-medium mt-2 hover:underline"
+              >
+                Learn more about NITJ →
+              </a>
+
               <div className="pt-3 border-t border-[#EEF4FF] flex flex-wrap gap-2">
                 {["Engineering", "Technology", "Sciences", "Management", "Research"].map((tag) => (
-                  <span key={tag} className="text-xs bg-[#EEF4FF] text-[#1565C0] px-3 py-1
-                                             rounded-full font-medium border border-[#1565C0]/20">
+                  <span
+                    key={tag}
+                    className="text-xs bg-[#EEF4FF] text-[#1565C0] px-3 py-1
+                               rounded-full font-medium border border-[#1565C0]/20"
+                  >
                     {tag}
                   </span>
                 ))}

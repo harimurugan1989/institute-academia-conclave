@@ -112,14 +112,6 @@ export default function Hero() {
                           font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-[#F5A623]/25">
             <span>📅</span> June 5–6, 2026
           </div>
-          <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white
-                          font-body text-sm px-5 py-2.5 rounded-full border border-white/25">
-            <span>📍</span> NIT Jalandhar, Punjab
-          </div>
-          <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white
-                          font-body text-sm px-5 py-2.5 rounded-full border border-white/25">
-            <span>🏛️</span> Organized by Dean, I&IA
-          </div>
         </motion.div>
 
         {/* Event format pills */}
