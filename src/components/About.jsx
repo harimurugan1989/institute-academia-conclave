@@ -2,10 +2,10 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STATS = [
-  { value: "2",  label: "Days",             icon: "📅" },
-  { value: "8",  label: "Technical Tracks", icon: "🧩" },
-  { value: "5",  label: "Event Formats",    icon: "🎯" },
-  { value: "3",  label: "Participant Types", icon: "👥" },
+  { value: "2",  label: "Days",              icon: "📅", showPlus: false },
+  { value: "8",  label: "Technical Tracks",  icon: "🧩", showPlus: true },
+  { value: "5",  label: "Event Formats",     icon: "🎯", showPlus: true },
+  { value: "3",  label: "Participant Types", icon: "👥", showPlus: true },
 ];
 
 const fadeUp = {
@@ -114,17 +114,6 @@ export default function About() {
                 Learn more about NITJ →
               </a>
 
-              <div className="pt-3 border-t border-[#EEF4FF] flex flex-wrap gap-2">
-                {["Engineering", "Technology", "Sciences", "Management", "Research"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs bg-[#EEF4FF] text-[#1565C0] px-3 py-1
-                               rounded-full font-medium border border-[#1565C0]/20"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>
@@ -144,7 +133,9 @@ export default function About() {
                          shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="font-display font-bold text-[#1565C0] text-4xl">{stat.value}+</div>
+              <div className="font-display font-bold text-[#1565C0] text-4xl">
+                {stat.value}{stat.showPlus ? "+" : ""}
+              </div>
               <div className="text-[#1A1A2E]/60 font-body text-sm mt-1">{stat.label}</div>
             </motion.div>
           ))}
