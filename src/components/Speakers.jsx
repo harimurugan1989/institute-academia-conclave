@@ -1,12 +1,55 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-const PLACEHOLDER_COUNT = 6;
+import { SPEAKERS } from "../data/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
+
+function getInitials(name) {
+  const parts = name.replace(/^(Mr\.|Ms\.|Dr\.|Sh\.|Prof\.)\s*/i, "").trim().split(" ");
+  return parts.length >= 2
+    ? parts[0][0] + parts[parts.length - 1][0]
+    : parts[0][0];
+}
+
+function SpeakerCard({ speaker, index }) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      transition={{ delay: index * 0.06 }}
+      className="group bg-white/5 border border-white/10 rounded-2xl p-6
+                 hover:bg-white/10 hover:border-[#F5A623]/30 transition-all duration-300
+                 flex flex-col items-center text-center"
+    >
+      {/* Avatar */}
+      <div className="w-20 h-20 rounded-full bg-[#1565C0]/30 border-2 border-[#1565C0]/40
+                      flex items-center justify-center mb-4
+                      group-hover:border-[#F5A623]/50 transition-colors duration-300
+                      font-display font-bold text-[#F5A623] text-xl select-none">
+        {getInitials(speaker.name)}
+      </div>
+
+      <h3 className="font-display font-bold text-white text-base leading-snug">
+        {speaker.name}
+      </h3>
+
+      {speaker.designation && (
+        <p className="text-white/60 font-body text-xs mt-1 leading-snug">
+          {speaker.designation}
+        </p>
+      )}
+
+      {speaker.organization && (
+        <span className="mt-3 px-3 py-1 bg-[#F5A623]/10 border border-[#F5A623]/25
+                         rounded-full text-[#F5A623] text-xs font-body font-medium">
+          {speaker.organization}
+        </span>
+      )}
+    </motion.div>
+  );
+}
 
 export default function Speakers() {
   const ref    = useRef(null);
@@ -42,56 +85,20 @@ export default function Speakers() {
             Keynote Speakers
           </h2>
           <p className="mt-5 text-white/55 font-body text-base max-w-xl mx-auto">
-            Eminent industry leaders and researchers. Speaker announcements coming soon.
+            Eminent industry leaders and researchers joining us for Industry-Academia Conclave 2026.
           </p>
         </motion.div>
 
         <motion.div
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          variants={{ show: { transition: { staggerChildren: 0.08 } } }}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {Array.from({ length: PLACEHOLDER_COUNT }).map((_, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="group bg-white/5 border border-white/10 rounded-2xl p-6
-                         hover:bg-white/10 hover:border-white/20 transition-all duration-300
-                         flex flex-col items-center text-center"
-            >
-              {/* Avatar placeholder */}
-              <div className="w-24 h-24 rounded-full bg-[#1565C0]/30 border-2 border-[#1565C0]/40
-                              flex items-center justify-center mb-4 overflow-hidden
-                              group-hover:border-[#F5A623]/50 transition-colors duration-300">
-                <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2
-                           7.2 9.9 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4
-                           c0-3.2-6.4-4.8-9.6-4.8z"/>
-                </svg>
-              </div>
-
-              <div className="w-24 h-3 bg-white/10 rounded-full mb-2" />
-              <div className="w-16 h-2.5 bg-white/6 rounded-full mb-1" />
-              <div className="w-20 h-2.5 bg-white/6 rounded-full" />
-
-              <div className="mt-4 px-3 py-1 bg-[#F5A623]/10 border border-[#F5A623]/20
-                              rounded-full text-[#F5A623]/70 text-xs font-body">
-                To Be Announced
-              </div>
-            </motion.div>
+          {SPEAKERS.map((speaker, i) => (
+            <SpeakerCard key={speaker.id} speaker={speaker} index={i} />
           ))}
         </motion.div>
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          transition={{ delay: 0.5 }}
-          className="text-center text-white/40 font-body text-sm mt-10"
-        >
-          Speaker profiles will be updated as confirmations are received.
-        </motion.p>
 
       </div>
     </section>

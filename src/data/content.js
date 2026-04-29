@@ -101,26 +101,145 @@ export const PARTICIPANTS = [
   },
 ];
 
+export const SPEAKERS = [
+  {
+    id: 1,
+    name: "Ms. Ashu Gupta",
+    designation: "Director, Functional Safety",
+    organization: "NXP",
+  },
+  {
+    id: 2,
+    name: "Mr. Narinder Thapa",
+    designation: "Chief Business Officer",
+    organization: "Sutlej Textiles and Industries Limited",
+  },
+  {
+    id: 3,
+    name: "Dr. Nemai Chandra Ray",
+    designation: "Functional Head",
+    organization: "Fiber & Yarn Innovation",
+  },
+  {
+    id: 4,
+    name: "Sh. Rajeev Mehani",
+    designation: "Sr. Vice President",
+    organization: "Vardhman Textiles",
+  },
+  {
+    id: 5,
+    name: "Dr. Santosh Kumar Vishvakarma",
+    designation: "Chief Scientific Advisor",
+    organization: "AIGGPA Bhopal, Govt. of Madhya Pradesh",
+  },
+  {
+    id: 6,
+    name: "Dr. Shivananda Koteshwar",
+    designation: "SVP and MD",
+    organization: "Astera Labs",
+  },
+  {
+    id: 7,
+    name: "Mr. Sankalp Singh",
+    designation: "University Program Manager",
+    organization: "Synopsys India",
+  },
+  {
+    id: 8,
+    name: "Dr. Amulya K. Panda",
+    designation: "Associate Director",
+    organization: "Panacea Biotech Limited",
+  },
+  {
+    id: 9,
+    name: "Dr. Rajamanohar Somasundaram",
+    designation: "Founder & CEO",
+    organization: "Aquaconnect",
+  },
+  {
+    id: 10,
+    name: "Mr. Piyush Parkhey",
+    designation: "Director",
+    organization: "Trinity International",
+  },
+  {
+    id: 11,
+    name: "Mr. Pradip Parode",
+    designation: "Director, Operational Excellence",
+    organization: "Pernod Ricard",
+  },
+  {
+    id: 12,
+    name: "Mr. Mani Madhukar",
+    designation: "",
+    organization: "IBM",
+  },
+  {
+    id: 13,
+    name: "Mr. Barjinder Singh",
+    designation: "",
+    organization: "Ultratech",
+  },
+  {
+    id: 14,
+    name: "Mr. Narinder Singh Jassal",
+    designation: "Co-ordinator",
+    organization: "DSIR-TOCIC",
+  },
+  {
+    id: 15,
+    name: "Dr. Soumen Bhattacharya",
+    designation: "Engineering Director",
+    organization: "Intel",
+  },
+];
+
 export const COMMITTEE = {
-  patron: { role: "Patron", name: "Prof. B.K. Kanaujia", designation: "Director, NIT Jalandhar" },
-  coPatron: { role: "Co-Patron", name: "Dr. Ajay Bansal", designation: "Registrar, NIT Jalandhar" },
-  chairperson: { role: "Chairperson", name: "Prof. Mamta Khosla", designation: "Dean, Industry & International Affairs" },
-  conveners: [
-    { name: "Dr. Arun Khosla",    dept: "Department of ECE" },
-    { name: "Dr. Balwinder Raj",  dept: "Department of ECE" },
+  chiefPatron: {
+    role: "Chief Patron",
+    name: "Prof. J.S. Yadav",
+    designation: "Chairperson BOG, NIT Jalandhar",
+  },
+  patron: {
+    role: "Patron",
+    name: "Prof. B.K. Kanaujia",
+    designation: "Director, NIT Jalandhar",
+  },
+  executiveGeneralChairs: [
+    {
+      name: "Dr. Mamta Khosla",
+      designation: "Dean, Industry & International Affairs",
+    },
+    {
+      name: "Dr. Ajay Bansal",
+      designation: "Registrar, NIT Jalandhar",
+    },
+    {
+      name: "Dr. Arun Khosla",
+      designation: "Department of ECE",
+    },
+  ],
+  programGeneralChairs: [
+    {
+      name: "Dr. Neha Yadav",
+      dept: "Department of Mathematics & Computing",
+    },
+    {
+      name: "Dr. Balwinder Raj",
+      dept: "Department of ECE",
+    },
   ],
   coordinators: [
-    { name: "Dr. Neha Yadav",             dept: "Dept. of M&C (Overall Co-ordinator)" },
-    { name: "Dr. Om Prakash Verma",       dept: "Dept. of ICE" },
+    { name: "Dr. Prangya Rajan Rout",     dept: "Dept. of Biotechnology" },
+    { name: "Dr. O.P. Verma",             dept: "Dept. of ICE" },
+    { name: "Dr. Anupam Yadav",           dept: "Dept. of Mathematics & Computing" },
     { name: "Dr. Mahesh Patel",           dept: "Dept. of Civil Engineering" },
     { name: "Dr. Nisha Chaurasia",        dept: "Dept. of IT" },
-    { name: "Dr. Prangya Rajan Rout",     dept: "Dept. of Biotechnology" },
-    { name: "Dr. Saurabh Kango",          dept: "Dept. of Mechanical Engineering" },
     { name: "Dr. Harimurugan",            dept: "Dept. of Electrical Engineering" },
-    { name: "Dr. Anupam Yadav",           dept: "Dept. of M&C" },
-    { name: "Dr. Suneel Dutt",            dept: "Dept. of Physics" },
-    { name: "Dr. Urvashi",               dept: "Dept. of CSE" },
+    { name: "Dr. Urvashi",               dept: "Dept. of Computer Science Engineering" },
+    { name: "Dr. Saurabh Kango",          dept: "Dept. of Mechanical Engineering" },
     { name: "Dr. Narendra Kumar",         dept: "Dept. of IPE" },
+    { name: "Dr. Suneel Dutt",            dept: "Dept. of Physics" },
     { name: "Dr. Palaniswamy N.K.",       dept: "Dept. of Textile Engineering" },
     { name: "Dr. Vickram Jeet Singh",     dept: "Dept. of Chemistry" },
     { name: "Dr. Nitin Naresh Pandhare", dept: "Dept. of Chemical Engineering" },

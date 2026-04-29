@@ -7,6 +7,11 @@ const fadeUp = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+function getInitial(name) {
+  const parts = name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.)\s*/i, "").trim().split(" ");
+  return parts[parts.length - 1][0];
+}
+
 function LeaderCard({ role, name, designation, delay = 0, gold = false }) {
   return (
     <motion.div
@@ -19,14 +24,13 @@ function LeaderCard({ role, name, designation, delay = 0, gold = false }) {
                     : "bg-white/5 border-white/10 hover:border-[#1565C0]/50"
                   }`}
     >
-      {/* Avatar */}
       <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4
                        border-2 text-3xl font-display font-bold
                        ${gold
                          ? "bg-[#F5A623]/20 border-[#F5A623]/50 text-[#F5A623]"
                          : "bg-[#1565C0]/20 border-[#1565C0]/40 text-[#1565C0]"
                        }`}>
-        {name.split(" ").pop()[0]}
+        {getInitial(name)}
       </div>
       <span className={`text-xs font-body font-semibold tracking-widest uppercase mb-2 px-3 py-1 rounded-full
                         ${gold ? "bg-[#F5A623]/15 text-[#F5A623]" : "bg-[#1565C0]/15 text-[#1565C0]"}`}>
@@ -35,6 +39,34 @@ function LeaderCard({ role, name, designation, delay = 0, gold = false }) {
       <h4 className="font-display font-bold text-white text-base leading-snug">{name}</h4>
       <p className="text-white/55 font-body text-xs mt-1 leading-snug">{designation}</p>
     </motion.div>
+  );
+}
+
+function RowCard({ name, designation, dept }) {
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4
+                    flex items-center gap-4 hover:border-[#1565C0]/40 transition-colors">
+      <div className="w-10 h-10 rounded-full bg-[#1565C0]/30 border border-[#1565C0]/50
+                      flex items-center justify-center font-display font-bold text-[#1565C0] text-sm flex-shrink-0">
+        {getInitial(name)}
+      </div>
+      <div>
+        <p className="font-body font-semibold text-white text-sm">{name}</p>
+        <p className="text-white/45 font-body text-xs mt-0.5">{designation || dept}</p>
+      </div>
+    </div>
+  );
+}
+
+function SectionDivider({ label }) {
+  return (
+    <div className="flex items-center gap-3 mb-5">
+      <div className="h-px flex-1 bg-white/10" />
+      <span className="text-white/50 font-body text-xs font-semibold tracking-widest uppercase px-4">
+        {label}
+      </span>
+      <div className="h-px flex-1 bg-white/10" />
+    </div>
   );
 }
 
@@ -78,74 +110,72 @@ export default function Committee() {
           </h2>
         </motion.div>
 
-        {/* Patron / Co-Patron / Chair */}
+        {/* Chief Patron + Patron */}
         <motion.div
           variants={{ show: { transition: { staggerChildren: 0.12 } } }}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid sm:grid-cols-3 gap-5 mb-8"
+          className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-8"
         >
-          <LeaderCard gold {...COMMITTEE.patron} />
-          <LeaderCard gold {...COMMITTEE.coPatron} delay={0.1} />
-          <LeaderCard gold {...COMMITTEE.chairperson} delay={0.2} />
+          <LeaderCard
+            gold
+            role={COMMITTEE.chiefPatron.role}
+            name={COMMITTEE.chiefPatron.name}
+            designation={COMMITTEE.chiefPatron.designation}
+          />
+          <LeaderCard
+            gold
+            role={COMMITTEE.patron.role}
+            name={COMMITTEE.patron.name}
+            designation={COMMITTEE.patron.designation}
+            delay={0.1}
+          />
         </motion.div>
 
-        {/* Conveners */}
+        {/* Executive General Chairs */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          transition={{ delay: 0.2 }}
+          className="mb-8"
+        >
+          <SectionDivider label="Executive General Chairs" />
+          <div className="grid sm:grid-cols-3 gap-4">
+            {COMMITTEE.executiveGeneralChairs.map((c) => (
+              <RowCard key={c.name} name={c.name} designation={c.designation} />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Program General Chairs */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
           transition={{ delay: 0.3 }}
-          className="mb-4"
+          className="mb-8"
         >
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-px flex-1 bg-white/10" />
-            <span className="text-white/50 font-body text-xs font-semibold tracking-widest uppercase px-4">
-              Conveners
-            </span>
-            <div className="h-px flex-1 bg-white/10" />
-          </div>
+          <SectionDivider label="Program General Chairs" />
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {COMMITTEE.conveners.map((c) => (
-              <div
-                key={c.name}
-                className="bg-white/5 border border-white/10 rounded-xl px-5 py-4
-                           flex items-center gap-4 hover:border-[#1565C0]/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#1565C0]/30 border border-[#1565C0]/50
-                                flex items-center justify-center font-display font-bold text-[#1565C0] text-sm flex-shrink-0">
-                  {c.name.split(" ").pop()[0]}
-                </div>
-                <div>
-                  <p className="font-body font-semibold text-white text-sm">{c.name}</p>
-                  <p className="text-white/45 font-body text-xs mt-0.5">{c.dept}</p>
-                </div>
-              </div>
+            {COMMITTEE.programGeneralChairs.map((c) => (
+              <RowCard key={c.name} name={c.name} dept={c.dept} />
             ))}
           </div>
         </motion.div>
 
-        {/* Co-ordinators */}
+        {/* Organising Secretaries */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
           transition={{ delay: 0.4 }}
-          className="mt-8"
+          className="mt-4"
         >
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-px flex-1 bg-white/10" />
-            <span className="text-white/50 font-body text-xs font-semibold tracking-widest uppercase px-4">
-              Co-ordinators &amp; Organising Secretary
-            </span>
-            <div className="h-px flex-1 bg-white/10" />
-          </div>
+          <SectionDivider label="Organising Secretaries" />
 
           <AnimatePresence>
-            <motion.div
-              layout
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"
-            >
+            <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {visibleCoords.map((c, i) => (
                 <motion.div
                   key={c.name}
@@ -159,7 +189,7 @@ export default function Committee() {
                   <div className="w-9 h-9 rounded-full bg-[#1565C0]/20 border border-[#1565C0]/30
                                   flex items-center justify-center font-display font-bold
                                   text-[#1565C0] text-xs flex-shrink-0">
-                    {c.name.split(" ").slice(-1)[0][0]}
+                    {getInitial(c.name)}
                   </div>
                   <div className="min-w-0">
                     <p className="font-body font-medium text-white text-sm truncate">{c.name}</p>
