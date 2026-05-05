@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { SPEAKERS } from "../data/content";
 
@@ -14,39 +14,55 @@ function getInitials(name) {
     : parts[0][0];
 }
 
+function SpeakerPortrait({ speaker }) {
+  const [imageError, setImageError] = useState(false);
+  const initials = getInitials(speaker.name);
+
+  if (!speaker.image || imageError) {
+    return (
+      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#1565C0]/25 border-2 border-white/25 flex items-center justify-center font-display font-bold text-[#F5A623] text-2xl select-none shrink-0">
+        {initials}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={speaker.image}
+      alt={speaker.name}
+      className="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full object-cover border-2 border-white/25 shrink-0"
+      onError={() => setImageError(true)}
+      loading="lazy"
+      decoding="async"
+      sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 176px"
+    />
+  );
+}
+
 function SpeakerCard({ speaker, index }) {
   return (
     <motion.div
       variants={fadeUp}
-      transition={{ delay: index * 0.06 }}
-      className="group bg-white/5 border border-white/10 rounded-2xl p-6
+      transition={{ delay: index * 0.05 }}
+      className="group bg-white/5 border border-white/10 rounded-[1.5rem] p-6 sm:p-7
                  hover:bg-white/10 hover:border-[#F5A623]/30 transition-all duration-300
                  flex flex-col items-center text-center"
     >
-      {/* Avatar */}
-      <div className="w-20 h-20 rounded-full bg-[#1565C0]/30 border-2 border-[#1565C0]/40
-                      flex items-center justify-center mb-4
-                      group-hover:border-[#F5A623]/50 transition-colors duration-300
-                      font-display font-bold text-[#F5A623] text-xl select-none">
-        {getInitials(speaker.name)}
+      <div className="mb-5 mt-3">
+        <SpeakerPortrait speaker={speaker} />
       </div>
 
-      <h3 className="font-display font-bold text-white text-base leading-snug">
+      <h3 className="font-display font-bold text-white text-lg sm:text-xl leading-tight max-w-[18ch]">
         {speaker.name}
       </h3>
 
-      {speaker.designation && (
-        <p className="text-white/60 font-body text-xs mt-1 leading-snug">
-          {speaker.designation}
-        </p>
-      )}
+      <p className="mt-2 text-[#F5A623] font-body font-semibold text-sm sm:text-[15px] leading-snug max-w-[28ch]">
+        {speaker.designation}
+      </p>
 
-      {speaker.organization && (
-        <span className="mt-3 px-3 py-1 bg-[#F5A623]/10 border border-[#F5A623]/25
-                         rounded-full text-[#F5A623] text-xs font-body font-medium">
-          {speaker.organization}
-        </span>
-      )}
+      <p className="mt-2 text-white/70 font-body text-sm sm:text-[15px] leading-snug max-w-[28ch]">
+        {speaker.affiliation}
+      </p>
     </motion.div>
   );
 }
@@ -82,10 +98,10 @@ export default function Speakers() {
           </span>
           <h2 className="font-display font-bold text-white text-3xl sm:text-4xl md:text-5xl
                          section-title [&::after]:bg-[#F5A623]">
-            Keynote Speakers
+            Speakers
           </h2>
           <p className="mt-5 text-white/55 font-body text-base max-w-xl mx-auto">
-            Eminent industry leaders and researchers joining us for Industry-Academia Conclave 2026.
+            Confirmed speakers for Industry-Academia Conclave 2026, arranged in the order provided.
           </p>
         </motion.div>
 
@@ -93,7 +109,7 @@ export default function Speakers() {
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
         >
           {SPEAKERS.map((speaker, i) => (
             <SpeakerCard key={speaker.id} speaker={speaker} index={i} />

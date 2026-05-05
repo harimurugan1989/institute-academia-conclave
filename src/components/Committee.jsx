@@ -12,7 +12,9 @@ function getInitial(name) {
   return parts[parts.length - 1][0];
 }
 
-function LeaderCard({ role, name, designation, delay = 0, gold = false }) {
+function LeaderCard({ role, name, designation, delay = 0, gold = false, image }) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <motion.div
       variants={fadeUp}
@@ -24,37 +26,93 @@ function LeaderCard({ role, name, designation, delay = 0, gold = false }) {
                     : "bg-white/5 border-white/10 hover:border-[#1565C0]/50"
                   }`}
     >
-      <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4
-                       border-2 text-3xl font-display font-bold
-                       ${gold
-                         ? "bg-[#F5A623]/20 border-[#F5A623]/50 text-[#F5A623]"
-                         : "bg-[#1565C0]/20 border-[#1565C0]/40 text-[#1565C0]"
-                       }`}>
-        {getInitial(name)}
-      </div>
+      {!image || imageError ? (
+        <div className={`w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center mb-5
+                         border-2 text-4xl font-display font-bold
+                         ${gold
+                           ? "bg-[#F5A623]/20 border-[#F5A623]/50 text-[#F5A623]"
+                           : "bg-[#1565C0]/20 border-[#1565C0]/40 text-[#1565C0]"
+                         }`}>
+          {getInitial(name)}
+        </div>
+      ) : (
+        <img
+          src={image}
+          alt={name}
+          className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover mb-5 border-2"
+          style={{
+            borderColor: gold ? "rgba(245, 166, 35, 0.5)" : "rgba(21, 101, 192, 0.4)"
+          }}
+          onError={() => setImageError(true)}
+        />
+      )}
       <span className={`text-xs font-body font-semibold tracking-widest uppercase mb-2 px-3 py-1 rounded-full
                         ${gold ? "bg-[#F5A623]/15 text-[#F5A623]" : "bg-[#1565C0]/15 text-[#1565C0]"}`}>
         {role}
       </span>
-      <h4 className="font-display font-bold text-white text-base leading-snug">{name}</h4>
-      <p className="text-white/55 font-body text-xs mt-1 leading-snug">{designation}</p>
+      <h4 className="font-display font-bold text-white text-lg leading-snug">{name}</h4>
+      <p className="text-white/55 font-body text-sm mt-1 leading-snug">{designation}</p>
     </motion.div>
   );
 }
 
-function RowCard({ name, designation, dept }) {
+function RowCard({ name, designation, dept, image }) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4
-                    flex items-center gap-4 hover:border-[#1565C0]/40 transition-colors">
-      <div className="w-10 h-10 rounded-full bg-[#1565C0]/30 border border-[#1565C0]/50
-                      flex items-center justify-center font-display font-bold text-[#1565C0] text-sm flex-shrink-0">
-        {getInitial(name)}
-      </div>
+                    flex items-center gap-5 hover:border-[#1565C0]/40 transition-colors">
+      {!image || imageError ? (
+        <div className="w-16 h-16 rounded-full bg-[#1565C0]/30 border border-[#1565C0]/50
+                        flex items-center justify-center font-display font-bold text-[#1565C0] text-lg flex-shrink-0">
+          {getInitial(name)}
+        </div>
+      ) : (
+        <img
+          src={image}
+          alt={name}
+          className="w-16 h-16 rounded-full object-cover border border-[#1565C0]/50 flex-shrink-0"
+          onError={() => setImageError(true)}
+        />
+      )}
       <div>
-        <p className="font-body font-semibold text-white text-sm">{name}</p>
-        <p className="text-white/45 font-body text-xs mt-0.5">{designation || dept}</p>
+        <p className="font-body font-semibold text-white text-base">{name}</p>
+        <p className="text-white/45 font-body text-sm mt-0.5">{designation || dept}</p>
       </div>
     </div>
+  );
+}
+
+function CoordinatorCard({ name, dept, image }) {
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white/4 border border-white/8 rounded-xl px-5 py-4
+                 flex items-center gap-4 hover:border-[#1565C0]/30
+                 hover:bg-white/8 transition-all duration-200"
+    >
+      {!image || imageError ? (
+        <div className="w-14 h-14 rounded-full bg-[#1565C0]/20 border border-[#1565C0]/30
+                        flex items-center justify-center font-display font-bold
+                        text-[#1565C0] text-base flex-shrink-0">
+          {getInitial(name)}
+        </div>
+      ) : (
+        <img
+          src={image}
+          alt={name}
+          className="w-14 h-14 rounded-full object-cover border border-[#1565C0]/30 flex-shrink-0"
+          onError={() => setImageError(true)}
+        />
+      )}
+      <div className="min-w-0">
+        <p className="font-body font-medium text-white text-base truncate">{name}</p>
+        <p className="text-white/40 font-body text-sm mt-0.5 truncate">{dept}</p>
+      </div>
+    </motion.div>
   );
 }
 
@@ -122,12 +180,14 @@ export default function Committee() {
             role={COMMITTEE.chiefPatron.role}
             name={COMMITTEE.chiefPatron.name}
             designation={COMMITTEE.chiefPatron.designation}
+            image={COMMITTEE.chiefPatron.image}
           />
           <LeaderCard
             gold
             role={COMMITTEE.patron.role}
             name={COMMITTEE.patron.name}
             designation={COMMITTEE.patron.designation}
+            image={COMMITTEE.patron.image}
             delay={0.1}
           />
         </motion.div>
@@ -143,7 +203,7 @@ export default function Committee() {
           <SectionDivider label="Executive General Chairs" />
           <div className="grid sm:grid-cols-3 gap-4">
             {COMMITTEE.executiveGeneralChairs.map((c) => (
-              <RowCard key={c.name} name={c.name} designation={c.designation} />
+              <RowCard key={c.name} name={c.name} designation={c.designation} image={c.image} />
             ))}
           </div>
         </motion.div>
@@ -159,7 +219,7 @@ export default function Committee() {
           <SectionDivider label="Program General Chairs" />
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {COMMITTEE.programGeneralChairs.map((c) => (
-              <RowCard key={c.name} name={c.name} dept={c.dept} />
+              <RowCard key={c.name} name={c.name} dept={c.dept} image={c.image} />
             ))}
           </div>
         </motion.div>
@@ -182,19 +242,8 @@ export default function Committee() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.04 }}
-                  className="bg-white/4 border border-white/8 rounded-xl px-5 py-4
-                             flex items-center gap-3 hover:border-[#1565C0]/30
-                             hover:bg-white/8 transition-all duration-200"
                 >
-                  <div className="w-9 h-9 rounded-full bg-[#1565C0]/20 border border-[#1565C0]/30
-                                  flex items-center justify-center font-display font-bold
-                                  text-[#1565C0] text-xs flex-shrink-0">
-                    {getInitial(c.name)}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-body font-medium text-white text-sm truncate">{c.name}</p>
-                    <p className="text-white/40 font-body text-xs mt-0.5 truncate">{c.dept}</p>
-                  </div>
+                  <CoordinatorCard name={c.name} dept={c.dept} image={c.image} />
                 </motion.div>
               ))}
             </motion.div>
