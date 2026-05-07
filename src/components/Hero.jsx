@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../assets/images/main-building.jpg";
 import img2 from "../assets/images/it-building.jpg";
@@ -140,29 +141,14 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 1.2 }}
           className="mt-10 flex flex-wrap justify-center gap-4"
         >
-          <Link to="about" smooth duration={600} offset={-80}>
-            <button className="px-8 py-3 bg-[#1565C0] hover:bg-[#1976D2] text-white
-                               font-body font-semibold text-sm rounded-lg shadow-lg
-                               shadow-[#1565C0]/30 transition-all duration-200 cursor-pointer">
-              Explore Conclave
-            </button>
-          </Link>
-          <div className="group relative">
-            <button
-              disabled
-              className="px-8 py-3 bg-transparent border-2 border-[#F5A623] text-[#F5A623]
-                         font-body font-semibold text-sm rounded-lg cursor-not-allowed
-                         opacity-80 transition-all duration-200"
-            >
-              Register Now
-            </button>
-            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5
-                             bg-[#0D2137] text-white text-xs rounded-md whitespace-nowrap
-                             opacity-0 group-hover:opacity-100 transition-opacity duration-200
-                             border border-white/10 pointer-events-none">
-              Registration link coming soon
-            </span>
-          </div>
+          <RouterLink
+            to="/register"
+            className="px-8 py-3 bg-transparent border-2 border-[#F5A623] text-[#F5A623]
+                       font-body font-semibold text-sm rounded-lg hover:bg-[#F5A623]/10
+                       transition-all duration-200"
+          >
+            Register Now
+          </RouterLink>
         </motion.div>
 
         {/* Slide indicators */}

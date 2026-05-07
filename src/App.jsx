@@ -1,17 +1,19 @@
-import Navbar      from "./components/Navbar";
-import Hero        from "./components/Hero";
-import About       from "./components/About";
-import Objectives  from "./components/Objectives";
-import Themes      from "./components/Themes";
-import Activities  from "./components/Activities";
+import { Routes, Route } from "react-router-dom";
+import Navbar       from "./components/Navbar";
+import Hero         from "./components/Hero";
+import About        from "./components/About";
+import Objectives   from "./components/Objectives";
+import Themes       from "./components/Themes";
+import Activities   from "./components/Activities";
 import Participants from "./components/Participants";
-import Speakers    from "./components/Speakers";
-import Committee   from "./components/Committee";
-import Register    from "./components/Register";
-import Contact     from "./components/Contact";
-import Footer      from "./components/Footer";
+import Speakers     from "./components/Speakers";
+import Committee    from "./components/Committee";
+import Register     from "./components/Register";
+import Contact      from "./components/Contact";
+import Footer       from "./components/Footer";
+import RegisterPage from "./pages/RegisterPage";
 
-export default function App() {
+function HomePage() {
   return (
     <div className="font-body text-nitj-text">
       <Navbar />
@@ -27,5 +29,14 @@ export default function App() {
       <Contact />
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/"         element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
+    </Routes>
   );
 }

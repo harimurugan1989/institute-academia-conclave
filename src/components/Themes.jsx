@@ -116,40 +116,6 @@ export default function Themes() {
           ))}
         </motion.div>
 
-        {/* CTA banner */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          transition={{ delay: 0.5 }}
-          className="mt-12 bg-gradient-to-r from-[#0D2137] to-[#1565C0] rounded-2xl
-                     p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
-        >
-          <div>
-            <h3 className="font-display font-bold text-white text-2xl">
-              Present Your Research
-            </h3>
-            <p className="text-white/60 font-body text-[15px] mt-1.5">
-              Faculty, researchers, and industry experts are invited to submit abstracts
-              aligned with any of the above tracks.
-            </p>
-          </div>
-          <div className="group relative flex-shrink-0">
-            <button
-              disabled
-              className="px-7 py-3.5 bg-[#F5A623] text-[#0D2137] font-body font-bold
-                         text-[14px] rounded-xl cursor-not-allowed opacity-80 tracking-wide"
-            >
-              Submit Abstract
-            </button>
-            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5
-                             bg-[#0D2137] text-white text-xs rounded-md whitespace-nowrap
-                             opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none
-                             border border-white/10 shadow-xl">
-              Submission portal opening soon
-            </span>
-          </div>
-        </motion.div>
 
       </div>
     </section>

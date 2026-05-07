@@ -38,7 +38,7 @@ export default function About() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-stretch mb-16">
           
           {/* Left — text */}
           <motion.div
@@ -46,24 +46,53 @@ export default function About() {
             initial="hidden"
             animate={inView ? "show" : "hidden"}
             transition={{ delay: 0.15 }}
-            className="space-y-5"
+            className="bg-white rounded-2xl border border-[#1565C0]/10 shadow-md overflow-hidden"
           >
-            <p className="text-[#1A1A2E]/80 font-body text-base leading-relaxed">
-              In the current rapidly evolving technological landscape, strengthening collaboration
-              between academia and industry is essential for fostering innovation, enhancing
-              employability, and promoting applied research.
-            </p>
-            <p className="text-[#1A1A2E]/80 font-body text-base leading-relaxed">
-              The Industry–Academia Conclave 2026 aims to create a platform for meaningful
-              dialogue, knowledge exchange, and partnership development between academic
-              researchers and industry professionals across diverse engineering disciplines.
-            </p>
-            <p className="text-[#1A1A2E]/80 font-body text-base leading-relaxed">
-              This two-day event will feature keynote talks, technical sessions, panel discussions,
-              a speed networking event, and an exhibition zone.
-            </p>
+            <div className="bg-[#1565C0] px-6 py-4">
+              <h3 className="font-display font-bold text-white text-xl">About the Conclave</h3>
+              <p className="text-white/70 text-xs font-body mt-1 tracking-wide">
+                Industry–Academia Conclave 2026
+              </p>
+            </div>
 
-            
+            <div className="px-6 py-6 space-y-3 text-[#1A1A2E]/75 font-body text-sm leading-relaxed">
+              <p>
+                In the current rapidly evolving technological landscape, strengthening collaboration
+                between academia and industry is essential for fostering{" "}
+                <strong className="text-[#1565C0]">innovation</strong>, enhancing employability,
+                and promoting applied research.
+              </p>
+              <p>
+                The Industry–Academia Conclave 2026 aims to create a platform for meaningful
+                dialogue, knowledge exchange, and partnership development between academic
+                researchers and industry professionals across diverse engineering disciplines.
+              </p>
+              <p>
+                This two-day event will feature keynote talks, technical sessions, panel discussions,
+                a speed networking event, and an exhibition zone — bringing together leaders from
+                industry, academia, and the startup ecosystem.
+              </p>
+              <p>
+                Organised by the <strong className="text-[#0D2137]">Dean, Industry &amp; International Affairs</strong>,
+                NIT Jalandhar, this conclave is envisioned as an annual flagship event to build
+                lasting collaborations and drive impactful research partnerships.
+              </p>
+
+              <div className="pt-2 space-y-2">
+                <div className="flex items-center gap-2 text-xs text-[#1A1A2E]/60">
+                  <span className="text-[#F5A623]">📅</span>
+                  <span><strong className="text-[#0D2137]">Dates:</strong> June 5–6, 2026</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-[#1A1A2E]/60">
+                  <span className="text-[#F5A623]">📍</span>
+                  <span><strong className="text-[#0D2137]">Venue:</strong> Dr. B.R. Ambedkar NIT Jalandhar, Punjab</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-[#1A1A2E]/60">
+                  <span className="text-[#F5A623]">🏛️</span>
+                  <span><strong className="text-[#0D2137]">Organiser:</strong> Dean, Industry &amp; International Affairs</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Right — about NITJ card */}

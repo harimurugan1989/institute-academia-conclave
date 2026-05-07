@@ -161,7 +161,7 @@ export const SPEAKERS = [
   {
     id: 9,
     name: "Dr. Santosh Kumar Vishvakarma",
-    designation: "Chief Scientific Advisor",
+    designation: "Chief Scientific Advisor, AIGGPA Bhopal",
     affiliation: "Professor, IIT Indore",
     image: "/speakers/09-santosh-kumar-vishvakarma.jpg",
   },

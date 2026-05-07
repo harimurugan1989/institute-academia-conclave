@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const NAV_LINKS = [
@@ -71,21 +72,13 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="ml-4 relative group">
-            <button
-              disabled
-              className="px-5 py-2 bg-[#F5A623] text-[#0D2137] text-[13px] font-body
-                         font-bold rounded-md opacity-80 cursor-not-allowed tracking-wide"
-            >
-              Register
-            </button>
-            <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5
-                             bg-[#0D2137] text-white text-xs rounded-md whitespace-nowrap
-                             opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none
-                             border border-white/10 shadow-xl">
-              Registration opens soon
-            </span>
-          </div>
+          <RouterLink
+            to="/register"
+            className="ml-4 px-5 py-2 bg-[#F5A623] text-[#0D2137] text-[13px] font-body
+                       font-bold rounded-md tracking-wide hover:bg-[#e6951a] transition-colors duration-200"
+          >
+            Register
+          </RouterLink>
         </nav>
 
         {/* Mobile hamburger */}
@@ -119,10 +112,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="mt-2 px-4 py-2.5 text-center bg-[#F5A623]/15 text-[#F5A623] text-sm
-                          font-body rounded-md border border-[#F5A623]/30">
-            Registration opens soon
-          </div>
+          <RouterLink
+            to="/register"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 px-4 py-2.5 text-center bg-[#F5A623] text-[#0D2137] text-sm font-body
+                       font-bold rounded-md block"
+          >
+            Register
+          </RouterLink>
         </div>
       </div>
     </header>

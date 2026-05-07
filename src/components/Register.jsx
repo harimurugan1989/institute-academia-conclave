@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 
 export default function Register() {
@@ -15,7 +16,6 @@ export default function Register() {
           className="relative bg-gradient-to-br from-[#0D2137] via-[#1565C0] to-[#0D2137]
                      rounded-3xl p-10 sm:p-14 text-center overflow-hidden"
         >
-          {/* decorative circles */}
           <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#F5A623]/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-[#1565C0]/20 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute inset-0 opacity-[0.04]"
@@ -29,48 +29,38 @@ export default function Register() {
             <span className="inline-block text-[#F5A623] font-body font-semibold text-xs
                              tracking-widest uppercase mb-4 bg-[#F5A623]/10 px-4 py-1.5
                              rounded-full border border-[#F5A623]/25">
-              Registration
+              Registration Open
             </span>
             <h2 className="font-display font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight">
               Register for the Conclave
             </h2>
             <p className="mt-5 text-white/65 font-body text-base max-w-lg mx-auto leading-relaxed">
-              Participation is open to industry professionals, faculty members, researchers,
-              and startups. The registration portal will open shortly.
+              Participation is open to industry professionals, faculty members, researchers, and startups.
+              Registration closes <span className="text-[#F5A623] font-semibold">30 May 2026</span>.
             </p>
 
-            {/* Date + venue chips */}
             <div className="flex flex-wrap justify-center gap-3 mt-7">
-              <div className="bg-white/10 border border-white/20 text-white font-body
-                              text-sm px-5 py-2 rounded-full backdrop-blur-sm">
+              <div className="bg-white/10 border border-white/20 text-white font-body text-sm px-5 py-2 rounded-full">
                 📅 &nbsp;June 5–6, 2026
               </div>
-              <div className="bg-white/10 border border-white/20 text-white font-body
-                              text-sm px-5 py-2 rounded-full backdrop-blur-sm">
+              <div className="bg-white/10 border border-white/20 text-white font-body text-sm px-5 py-2 rounded-full">
                 📍 &nbsp;NIT Jalandhar, Punjab
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="mt-8 group relative inline-block">
-              <button
-                disabled
-                className="px-10 py-4 bg-[#F5A623] text-[#0D2137] font-body font-bold
-                           text-base rounded-xl cursor-not-allowed opacity-80 shadow-xl
-                           shadow-[#F5A623]/20"
+            <div className="mt-8">
+              <Link
+                to="/register"
+                className="inline-block px-10 py-4 bg-[#F5A623] text-[#0D2137] font-body font-bold
+                           text-base rounded-xl shadow-xl shadow-[#F5A623]/20
+                           hover:bg-[#e6951a] transition-colors duration-200"
               >
-                Registration Link Coming Soon
-              </button>
-              <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-4 py-2
-                               bg-[#0D2137] text-white text-xs rounded-lg whitespace-nowrap
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-200
-                               border border-white/15 shadow-xl pointer-events-none">
-                The registration portal will be updated on this page
-              </span>
+                Register Now →
+              </Link>
             </div>
 
             <p className="mt-5 text-white/35 font-body text-xs">
-              Contact Dr. Neha Yadav at yadavn@nitj.ac.in for registration queries.
+              Contact Dr. Neha Yadav at yadavn@nitj.ac.in for queries.
             </p>
           </div>
         </motion.div>

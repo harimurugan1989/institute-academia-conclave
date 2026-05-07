@@ -20,7 +20,8 @@ function SpeakerPortrait({ speaker }) {
 
   if (!speaker.image || imageError) {
     return (
-      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#1565C0]/25 border-2 border-white/25 flex items-center justify-center font-display font-bold text-[#F5A623] text-2xl select-none shrink-0">
+      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#1565C0]/25 border-2 border-white/25
+                      flex items-center justify-center font-display font-bold text-[#F5A623] text-2xl select-none">
         {initials}
       </div>
     );
@@ -30,11 +31,10 @@ function SpeakerPortrait({ speaker }) {
     <img
       src={speaker.image}
       alt={speaker.name}
-      className="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full object-cover border-2 border-white/25 shrink-0"
+      className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-2 border-white/25"
       onError={() => setImageError(true)}
       loading="lazy"
       decoding="async"
-      sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 176px"
     />
   );
 }
@@ -43,26 +43,26 @@ function SpeakerCard({ speaker, index }) {
   return (
     <motion.div
       variants={fadeUp}
-      transition={{ delay: index * 0.05 }}
-      className="group bg-white/5 border border-white/10 rounded-[1.5rem] p-6 sm:p-7
+      transition={{ delay: index * 0.04 }}
+      className="group bg-white/5 border border-white/10 rounded-2xl p-5
                  hover:bg-white/10 hover:border-[#F5A623]/30 transition-all duration-300
-                 flex flex-col items-center text-center"
+                 flex flex-col items-center text-center gap-3"
     >
-      <div className="mb-5 mt-3">
-        <SpeakerPortrait speaker={speaker} />
+      <SpeakerPortrait speaker={speaker} />
+
+      <div className="flex flex-col gap-1">
+        <h3 className="font-display font-bold text-white text-base sm:text-[17px] leading-snug">
+          {speaker.name}
+        </h3>
+
+        <p className="text-[#F5A623] font-body font-semibold text-xs sm:text-sm leading-snug">
+          {speaker.designation}
+        </p>
+
+        <p className="text-white/60 font-body text-xs sm:text-sm leading-snug">
+          {speaker.affiliation}
+        </p>
       </div>
-
-      <h3 className="font-display font-bold text-white text-lg sm:text-xl leading-tight max-w-[18ch]">
-        {speaker.name}
-      </h3>
-
-      <p className="mt-2 text-[#F5A623] font-body font-semibold text-sm sm:text-[15px] leading-snug max-w-[28ch]">
-        {speaker.designation}
-      </p>
-
-      <p className="mt-2 text-white/70 font-body text-sm sm:text-[15px] leading-snug max-w-[28ch]">
-        {speaker.affiliation}
-      </p>
     </motion.div>
   );
 }
@@ -73,8 +73,8 @@ export default function Speakers() {
 
   return (
     <section id="speakers" ref={ref} className="py-24 bg-[#0D2137] relative overflow-hidden">
-      {/* bg texture */}
-      <div className="absolute inset-0 opacity-[0.04]"
+      <div
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
           backgroundSize: "28px 28px",
@@ -89,7 +89,7 @@ export default function Speakers() {
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <span className="inline-block text-[#F5A623] font-body font-semibold text-sm
                            tracking-widest uppercase mb-3 bg-[#F5A623]/10 px-4 py-1.5
@@ -101,15 +101,15 @@ export default function Speakers() {
             Speakers
           </h2>
           <p className="mt-5 text-white/55 font-body text-base max-w-xl mx-auto">
-            Confirmed speakers for Industry-Academia Conclave 2026, arranged in the order provided.
+            Confirmed speakers for Industry-Academia Conclave 2026.
           </p>
         </motion.div>
 
         <motion.div
-          variants={{ show: { transition: { staggerChildren: 0.08 } } }}
+          variants={{ show: { transition: { staggerChildren: 0.06 } } }}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+          className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {SPEAKERS.map((speaker, i) => (
             <SpeakerCard key={speaker.id} speaker={speaker} index={i} />
