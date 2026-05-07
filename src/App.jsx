@@ -11,7 +11,9 @@ import Committee    from "./components/Committee";
 import Register     from "./components/Register";
 import Contact      from "./components/Contact";
 import Footer       from "./components/Footer";
-import RegisterPage from "./pages/RegisterPage";
+import RegisterPage  from "./pages/RegisterPage";
+import SponsorsPage  from "./pages/SponsorsPage";
+import Sponsors      from "./components/Sponsors";
 
 function HomePage() {
   return (
@@ -25,6 +27,7 @@ function HomePage() {
       <Participants />
       <Speakers />
       <Committee />
+      <Sponsors />
       <Register />
       <Contact />
       <Footer />
@@ -35,8 +38,9 @@ function HomePage() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/"         element={<HomePage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/"          element={<HomePage />} />
+      <Route path="/register"  element={<RegisterPage />} />
+      <Route path="/sponsors"  element={<SponsorsPage />} />
     </Routes>
   );
 }

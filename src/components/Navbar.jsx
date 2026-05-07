@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Activities", to: "activities" },
   { label: "Speakers",   to: "speakers" },
   { label: "Committee",  to: "committee" },
+  { label: "Sponsors",   to: "sponsors" },
   { label: "Contact",    to: "contact" },
 ];
 
@@ -19,7 +20,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight - 80);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,7 +29,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0D2137]/96 backdrop-blur-md shadow-lg shadow-black/25 py-2"
+          ? "bg-[#0D2137] shadow-lg shadow-black/30 py-2"
           : "bg-transparent py-4"
       }`}
     >
