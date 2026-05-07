@@ -23,11 +23,11 @@ function HomePage() {
       <About />
       <Objectives />
       <Themes />
-      <Activities />
-      <Participants />
       <Speakers />
-      <Committee />
+      <Activities />
       <Sponsors />
+      <Participants />
+      <Committee />
       <Register />
       <Contact />
       <Footer />
