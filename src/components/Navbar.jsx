@@ -47,7 +47,7 @@ export default function Navbar() {
               NIT Jalandhar
             </p>
             <p className="text-[#F5A623] text-[12px] font-body font-medium tracking-wider uppercase">
-              Industry–Academia Conclave 2026
+             IAC 2026
             </p>
           </div>
         </div>
