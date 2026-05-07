@@ -223,10 +223,10 @@ export const SPEAKERS = [
   },
   {
     id: 18,
-    name: "Mr. Barjinder Singh",
-    designation: "Regional Head-TCS",
-    affiliation: "Ultratech Cement",
-    image: "/speakers/18-barjinder-singh.jpg",
+    name: "Mr. Gaurav Sangwan",
+    designation: "Zonal Manager",
+    affiliation: "Adtiya Birla Group",
+    image: "/speakers/18.jpg",
   },
   {
     id: 19,
@@ -234,6 +234,12 @@ export const SPEAKERS = [
     designation: "Program Lead, Innovation Center for Education",
     affiliation: "IBM",
     image: "/speakers/19-mani-madhukar.jpg",
+  },
+  {
+    id: 20,
+    name: "Mr Sanjeev Kumar",
+    designation: "Associate Vice President",
+    affiliation: "Adani ports & SEZ Ltd",
   },
 ];
 

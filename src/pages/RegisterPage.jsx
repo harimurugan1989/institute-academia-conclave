@@ -118,7 +118,7 @@ export default function RegisterPage() {
           <div className="mt-5 flex gap-3 p-4 bg-green-50 border border-green-200 rounded-xl">
             <span className="text-green-600 text-lg">✓</span>
             <p className="font-body text-sm text-green-800">
-              <span className="font-semibold">No registration fee</span> for NITJ students, faculty, and staff.
+              <span className="font-semibold">No registration fee</span> for NITJ-TBI Startups, Sponsors, NITJ students, NITJ faculty, and NITJ staff.
             </p>
           </div>
         </motion.div>
