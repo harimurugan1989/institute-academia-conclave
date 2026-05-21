@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/images/logo.png";
+import { SPONSORS } from "../data/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -175,6 +176,50 @@ export default function SponsorsPage() {
               </div>
             ))}
           </div>
+        </motion.div>
+
+        {/* ── Confirmed Sponsors ── */}
+        <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.08 }}
+          className="bg-white rounded-3xl p-7 sm:p-10 shadow-sm border border-slate-100">
+          <h2 className="font-display font-bold text-[#0D2137] text-xl sm:text-2xl mb-2">
+            Our Sponsors
+          </h2>
+          <p className="text-slate-400 font-body text-sm mb-8">
+            Thank you to our confirmed sponsors for their generous support.
+          </p>
+          {SPONSORS.map((tier) => (
+            <div key={tier.tier} className="mb-6 last:mb-0">
+              <div className="flex items-center gap-3 mb-5">
+                <span
+                  className="px-3 py-1 rounded-full border font-body font-semibold text-xs"
+                  style={{ color: tier.color, borderColor: `${tier.color}50`, background: `${tier.color}18` }}
+                >
+                  {tier.tier}
+                </span>
+                <span className="font-display font-bold text-[#0D2137] text-sm">{tier.amount}</span>
+              </div>
+              <div className="flex flex-wrap gap-5">
+                {tier.companies.map((company) => (
+                  <div
+                    key={company.name}
+                    className="flex flex-col gap-4 border rounded-2xl p-5 w-72 bg-[#EEF4FF]"
+                    style={{ borderColor: `${tier.color}40` }}
+                  >
+                    <div className="bg-white rounded-xl p-4 flex items-center justify-center w-full">
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        className="max-h-20 max-w-full object-contain"
+                      />
+                    </div>
+                    <p className="text-slate-500 font-body text-xs leading-relaxed">
+                      {company.benefits}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </motion.div>
 
         {/* ── Expected Participation & Outcomes ── */}
