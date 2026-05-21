@@ -196,25 +196,22 @@ export default function SponsorsPage() {
                 >
                   {tier.tier}
                 </span>
-                <span className="font-display font-bold text-[#0D2137] text-sm">{tier.amount}</span>
+                {tier.amount && <span className="font-display font-bold text-[#0D2137] text-sm">{tier.amount}</span>}
               </div>
               <div className="flex flex-wrap gap-5">
                 {tier.companies.map((company) => (
                   <div
                     key={company.name}
-                    className="flex flex-col gap-4 border rounded-2xl p-5 w-72 bg-[#EEF4FF]"
+                    className="flex flex-col gap-4 border rounded-2xl p-6 w-96 bg-[#EEF4FF]"
                     style={{ borderColor: `${tier.color}40` }}
                   >
-                    <div className="bg-white rounded-xl p-4 flex items-center justify-center w-full">
+                    <div className="bg-white rounded-xl p-6 flex items-center justify-center w-full">
                       <img
                         src={company.logo}
                         alt={company.name}
-                        className="max-h-20 max-w-full object-contain"
+                        className="h-40 max-w-full object-contain"
                       />
                     </div>
-                    <p className="text-slate-500 font-body text-xs leading-relaxed">
-                      {company.benefits}
-                    </p>
                   </div>
                 ))}
               </div>

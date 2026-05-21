@@ -270,6 +270,20 @@ export const SPONSORS = [
       },
     ],
   },
+  {
+    tier: "Other Sponsors",
+    color: "#94a3b8",
+    companies: [
+      {
+        name: "Monotech",
+        logo: "/speakers/Monotech-R-Logo-01.png",
+      },
+      {
+        name: "Ultratech Cements",
+        logo: "/speakers/ultratech-cement-logo.png",
+      },
+    ],
+  },
 ];
 
 export const COMMITTEE = {

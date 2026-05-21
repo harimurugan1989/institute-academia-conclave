@@ -120,7 +120,7 @@ export default function Sponsors() {
                   className="px-4 py-1.5 rounded-full border font-body font-semibold text-sm"
                   style={{ color: tier.color, borderColor: `${tier.color}40`, background: `${tier.color}15` }}
                 >
-                  {tier.tier} · {tier.amount}
+                  {tier.tier}{tier.amount ? ` · ${tier.amount}` : ""}
                 </span>
                 <div className="h-px flex-1 bg-white/10 max-w-xs" />
               </div>
@@ -128,14 +128,14 @@ export default function Sponsors() {
                 {tier.companies.map((company) => (
                   <div
                     key={company.name}
-                    className="flex flex-col items-center gap-4 bg-white/8 border rounded-2xl p-6 w-72"
+                    className="flex flex-col items-center gap-4 bg-white/8 border rounded-2xl p-6 w-96"
                     style={{ borderColor: `${tier.color}30` }}
                   >
-                    <div className="bg-white rounded-xl p-4 w-full flex items-center justify-center">
+                    <div className="bg-white rounded-xl p-6 w-full flex items-center justify-center">
                       <img
                         src={company.logo}
                         alt={company.name}
-                        className="max-h-20 max-w-full object-contain"
+                        className="h-40 max-w-full object-contain"
                       />
                     </div>
                     {/* <p className="text-white/65 font-body text-xs text-center leading-relaxed">
