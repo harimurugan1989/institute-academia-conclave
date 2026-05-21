@@ -111,24 +111,24 @@ export const SPEAKERS = [
   },
   {
     id: 2,
-    name: "Mr. Saurabh Srivastava",
-    designation: "General Manager, CMD Secretariat",
-    affiliation: "BHEL",
-    image: "/speakers/02-saurabh-srivastava.jpg",
+    name: "Dr. Vilas Zode",
+    designation: "Director-HR",
+    affiliation: "HPCL",
+    image: "/speakers/Dr. Vilas Zode, HPCL.jpg",
   },
   {
     id: 3,
-    name: "Sh. Tarun Bajaj",
-    designation: "Executive Director, POWERGRID, Northern Region, Jammu",
-    affiliation: "PGCIL",
-    image: "/speakers/03-tarun-bajaj.jpg",
+    name: "Dr. Sangita M. Kasture",
+    designation: "Scientist 'G' & Head, Bioenergy Division",
+    affiliation: "Ministry of New and Renewable Energy, GoI",
+    image: "/speakers/Dr. Sangita M. Kasture.jpg",
   },
   {
     id: 4,
-    name: "Dr. Rajamanohar Somasundaram",
-    designation: "Founder & CEO",
-    affiliation: "Aquaconnect",
-    image: "/speakers/04-rajamanohar-somasundaram.jpg",
+    name: "Mr. Sudhir Gera",
+    designation: "Director-Operations",
+    affiliation: "IEC Electric Power Ltd.",
+    image: "/speakers/Mr. Sudhir Gera.jpg",
   },
   {
     id: 5,
@@ -240,6 +240,35 @@ export const SPEAKERS = [
     name: "Mr Sanjeev Kumar",
     designation: "Associate Vice President",
     affiliation: "Adani ports & SEZ Ltd",
+  },
+  {
+    id: 21,
+    name: "Mr. Imran Ahmed",
+    designation: "Head, Design Section",
+    affiliation: "TECHNIP",
+    image: "/speakers/Mr. Imran Ahmad.jpg",
+  },
+  {
+    id: 22,
+    name: "Mr. Manmohan Singh",
+    designation: "Chief Operating Officer",
+    affiliation: "ADK Instruments",
+    image: "/speakers/manmohan.jpg",
+  },
+];
+
+export const SPONSORS = [
+  {
+    tier: "Platinum Sponsor",
+    amount: "₹3,00,000",
+    color: "#E5C97E",
+    companies: [
+      {
+        name: "Agmatel + Keysight",
+        logo: "/speakers/Agmatel+Keysight Logo.png",
+        benefits: "Keynote speaking opportunity, premium branding, exclusive stall, logo on all materials, social media promotion",
+      },
+    ],
   },
 ];
 

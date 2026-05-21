@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
+import { SPONSORS } from "../data/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -98,6 +99,67 @@ export default function Sponsors() {
           <p className="mt-5 text-white/55 font-body text-base max-w-2xl mx-auto">
             Partner with us to connect with 100+ industry professionals, researchers, faculty,
             and startups at India's premier Industry–Academia platform.
+          </p>
+        </motion.div>
+
+        {/* Confirmed Sponsors */}
+        <motion.div
+          variants={fadeUp} initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          transition={{ delay: 0.1 }}
+          className="mb-14"
+        >
+          <h3 className="text-center font-display font-bold text-white text-xl sm:text-2xl mb-8">
+            Our Sponsors
+          </h3>
+          {SPONSORS.map((tier) => (
+            <div key={tier.tier} className="mb-8">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px flex-1 bg-white/10 max-w-xs" />
+                <span
+                  className="px-4 py-1.5 rounded-full border font-body font-semibold text-sm"
+                  style={{ color: tier.color, borderColor: `${tier.color}40`, background: `${tier.color}15` }}
+                >
+                  {tier.tier} · {tier.amount}
+                </span>
+                <div className="h-px flex-1 bg-white/10 max-w-xs" />
+              </div>
+              <div className="flex flex-wrap justify-center gap-6">
+                {tier.companies.map((company) => (
+                  <div
+                    key={company.name}
+                    className="flex flex-col items-center gap-4 bg-white/8 border rounded-2xl p-6 w-72"
+                    style={{ borderColor: `${tier.color}30` }}
+                  >
+                    <div className="bg-white rounded-xl p-4 w-full flex items-center justify-center">
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        className="max-h-20 max-w-full object-contain"
+                      />
+                    </div>
+                    {/* <p className="text-white/65 font-body text-xs text-center leading-relaxed">
+                      {company.benefits}
+                    </p> */}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Sponsorship Tiers */}
+        <motion.div
+          variants={fadeUp} initial="hidden"
+          animate={inView ? "show" : "hidden"}
+          transition={{ delay: 0.15 }}
+          className="text-center mb-8"
+        >
+          <h3 className="font-display font-bold text-white text-xl sm:text-2xl">
+            Sponsorship Packages
+          </h3>
+          <p className="mt-2 text-white/45 font-body text-sm">
+            Join our growing list of sponsors — choose the tier that fits your goals.
           </p>
         </motion.div>
 
