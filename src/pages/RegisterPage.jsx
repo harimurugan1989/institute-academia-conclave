@@ -184,7 +184,7 @@ export default function RegisterPage() {
           className="text-center"
         >
           <a
-            href="#"
+            href="https://www.nitj.ac.in/events_registration/iaconclave_2026/login"
             className="inline-block px-12 py-4 bg-[#1565C0] text-white font-body font-bold
                        text-base rounded-xl shadow-lg shadow-[#1565C0]/20
                        hover:bg-[#1254a8] transition-colors duration-200"
