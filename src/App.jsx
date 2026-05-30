@@ -14,6 +14,7 @@ import Contact      from "./components/Contact";
 import Footer       from "./components/Footer";
 import RegisterPage  from "./pages/RegisterPage";
 import SponsorsPage  from "./pages/SponsorsPage";
+import ContactPage   from "./pages/ContactPage";
 import Sponsors      from "./components/Sponsors";
 
 function HomePage() {
@@ -43,6 +44,7 @@ export default function App() {
       <Route path="/"          element={<HomePage />} />
       <Route path="/register"  element={<RegisterPage />} />
       <Route path="/sponsors"  element={<SponsorsPage />} />
+      <Route path="/contact"   element={<ContactPage />} />
     </Routes>
   );
 }

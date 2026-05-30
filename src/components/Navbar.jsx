@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { label: "Speakers",   to: "speakers" },
   { label: "Committee",  to: "committee" },
   { label: "Sponsors",   to: "sponsors" },
-  { label: "Contact",    to: "contact" },
 ];
 
 export default function Navbar() {
@@ -74,6 +73,13 @@ export default function Navbar() {
             </Link>
           ))}
           <RouterLink
+            to="/contact"
+            className="px-3.5 py-2 text-[13.5px] font-body font-medium rounded-md
+                       text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 tracking-wide"
+          >
+            Contact
+          </RouterLink>
+          <RouterLink
             to="/register"
             className="ml-4 px-5 py-2 bg-[#F5A623] text-[#0D2137] text-[13px] font-body
                        font-bold rounded-md tracking-wide hover:bg-[#e6951a] transition-colors duration-200"
@@ -113,6 +119,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <RouterLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-md
+                       text-[15px] font-body font-medium transition-all"
+          >
+            Contact
+          </RouterLink>
           <RouterLink
             to="/register"
             onClick={() => setMenuOpen(false)}

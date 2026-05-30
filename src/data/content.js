@@ -329,7 +329,7 @@ export const SPONSORS = [
     ],
   },
   {
-    tier: "Other Sponsors",
+    tier: "Supporting Sponsors",
     color: "#94a3b8",
     companies: [
       {
@@ -416,3 +416,22 @@ export const CONTACT = {
   organizer: "Dean, Industry & International Affairs",
   institute: "Dr. B.R. Ambedkar National Institute of Technology Jalandhar",
 };
+
+export const CONTACTS = [
+  {
+    name: "Dr. Mamta Khosla",
+    role: "Executive General Chair",
+    designation: "Former Dean, Industry & International Affairs",
+    dept: "Department of Electronics & Communication Engineering",
+    image: "/organising/01-mamta-khosla.jpg",
+  },
+  {
+    name: "Dr. Neha Yadav",
+    role: "Co-ordinator",
+    designation: "Co-ordinator, Industry-Academia Conclave 2026",
+    dept: "Department of Mathematics & Computing",
+    email: "yadavn@nitj.ac.in",
+    phone: "07310751691",
+    image: "/organising/04-neha-yadav.jpg",
+  },
+];
