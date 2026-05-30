@@ -56,12 +56,13 @@ function LeaderCard({ role, name, designation, delay = 0, gold = false, image })
   );
 }
 
-function RowCard({ name, designation, dept, image }) {
+function RowCard({ name, designation, dept, image, fullHeight }) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-xl px-5 py-4
-                    flex items-center gap-5 hover:border-[#1565C0]/40 transition-colors">
+    <div className={`bg-white/5 border border-white/10 rounded-xl px-5 py-4
+                    flex items-center gap-5 hover:border-[#1565C0]/40 transition-colors w-full
+                    ${fullHeight ? "h-full" : ""}`}>
       {!image || imageError ? (
         <div className="w-16 h-16 rounded-full bg-[#1565C0]/30 border border-[#1565C0]/50
                         flex items-center justify-center font-display font-bold text-[#1565C0] text-lg flex-shrink-0">
@@ -201,9 +202,11 @@ export default function Committee() {
           className="mb-8"
         >
           <SectionDivider label="Executive General Chairs" />
-          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
             {COMMITTEE.executiveGeneralChairs.map((c) => (
-              <RowCard key={c.name} name={c.name} designation={c.designation} image={c.image} />
+              <div key={c.name} className="w-full sm:w-72">
+                <RowCard name={c.name} designation={c.designation} image={c.image} />
+              </div>
             ))}
           </div>
         </motion.div>
@@ -217,9 +220,11 @@ export default function Committee() {
           className="mb-8"
         >
           <SectionDivider label="Program General Chairs" />
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="flex flex-wrap justify-center items-stretch gap-4">
             {COMMITTEE.programGeneralChairs.map((c) => (
-              <RowCard key={c.name} name={c.name} dept={c.dept} image={c.image} />
+              <div key={c.name} className="w-full sm:w-72 flex">
+                <RowCard name={c.name} dept={c.dept} image={c.image} fullHeight />
+              </div>
             ))}
           </div>
         </motion.div>
