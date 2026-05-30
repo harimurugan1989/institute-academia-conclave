@@ -258,14 +258,14 @@ export const SPEAKERS = [
     {
     id: 23,
     name: "Dr. C S Yadav",
-    designation: "",
+    designation: "Scientist C",
     affiliation: "DST, GoI",
     image: "/speakers/Dr. C.S. Yadav, DST.png",
   },
      {
     id: 23,
     name: "Mr. Ashutosh Wadhwa",
-    designation: "",
+    designation: "CEO",
     affiliation: "RajHans International",
     image: "/speakers/Mr. Ashutosh Wadhwa.jpeg",
   },
