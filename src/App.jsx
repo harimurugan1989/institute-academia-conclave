@@ -7,6 +7,7 @@ import Themes       from "./components/Themes";
 import Activities   from "./components/Activities";
 import Participants from "./components/Participants";
 import Speakers     from "./components/Speakers";
+import Panelists    from "./components/Panelists";
 import Committee    from "./components/Committee";
 import Register     from "./components/Register";
 import Contact      from "./components/Contact";
@@ -24,6 +25,7 @@ function HomePage() {
       <Objectives />
       <Themes />
       <Speakers />
+      <Panelists />
       <Activities />
       <Sponsors />
       <Participants />

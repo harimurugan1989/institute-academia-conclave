@@ -201,7 +201,7 @@ export default function Committee() {
           className="mb-8"
         >
           <SectionDivider label="Executive General Chairs" />
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
             {COMMITTEE.executiveGeneralChairs.map((c) => (
               <RowCard key={c.name} name={c.name} designation={c.designation} image={c.image} />
             ))}
@@ -217,7 +217,7 @@ export default function Committee() {
           className="mb-8"
         >
           <SectionDivider label="Program General Chairs" />
-          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-4">
             {COMMITTEE.programGeneralChairs.map((c) => (
               <RowCard key={c.name} name={c.name} dept={c.dept} image={c.image} />
             ))}

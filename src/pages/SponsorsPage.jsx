@@ -205,12 +205,18 @@ export default function SponsorsPage() {
                     className="flex flex-col gap-4 border rounded-2xl p-6 w-96 bg-[#EEF4FF]"
                     style={{ borderColor: `${tier.color}40` }}
                   >
-                    <div className="bg-white rounded-xl p-6 flex items-center justify-center w-full">
-                      <img
-                        src={company.logo}
-                        alt={company.name}
-                        className="h-40 max-w-full object-contain"
-                      />
+                    <div className="bg-white rounded-xl p-6 flex items-center justify-center w-full min-h-[10rem]">
+                      {company.logo ? (
+                        <img
+                          src={company.logo}
+                          alt={company.name}
+                          className="h-40 max-w-full object-contain"
+                        />
+                      ) : (
+                        <p className="font-display font-bold text-[#0D2137] text-xl text-center">
+                          {company.name}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}

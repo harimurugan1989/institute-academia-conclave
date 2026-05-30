@@ -131,12 +131,18 @@ export default function Sponsors() {
                     className="flex flex-col items-center gap-4 bg-white/8 border rounded-2xl p-6 w-96"
                     style={{ borderColor: `${tier.color}30` }}
                   >
-                    <div className="bg-white rounded-xl p-6 w-full flex items-center justify-center">
-                      <img
-                        src={company.logo}
-                        alt={company.name}
-                        className="h-40 max-w-full object-contain"
-                      />
+                    <div className="bg-white rounded-xl p-6 w-full flex items-center justify-center min-h-[10rem]">
+                      {company.logo ? (
+                        <img
+                          src={company.logo}
+                          alt={company.name}
+                          className="h-40 max-w-full object-contain"
+                        />
+                      ) : (
+                        <p className="font-display font-bold text-[#0D2137] text-xl text-center">
+                          {company.name}
+                        </p>
+                      )}
                     </div>
                     {/* <p className="text-white/65 font-body text-xs text-center leading-relaxed">
                       {company.benefits}

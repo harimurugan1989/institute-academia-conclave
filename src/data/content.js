@@ -209,16 +209,16 @@ export const SPEAKERS = [
   },
   {
     id: 16,
-    name: "Mr. Narinder Thapa",
-    designation: "Chief Business Officer",
-    affiliation: "Sutlej Textiles and Industries Limited",
+    name: " Mr. Piyush D. Ukey",
+    designation: "",
+    affiliation: "Ossaplus",
     image: "/speakers/16-narinder-thapa.jpg",
   },
   {
     id: 17,
     name: "Dr. Nemai Chandra Ray",
     designation: "Functional Head",
-    affiliation: "Fiber & Yarn Innovation",
+    affiliation: "Trident Group",
     image: "/speakers/17-nemai-chandra-ray.jpg",
   },
   {
@@ -255,6 +255,41 @@ export const SPEAKERS = [
     affiliation: "ADK Instruments",
     image: "/speakers/manmohan.jpg",
   },
+    {
+    id: 23,
+    name: "Dr. C S Yadav",
+    designation: "",
+    affiliation: "DST, GoI",
+    image: "/speakers/manmohan.jpg",
+  },
+     {
+    id: 23,
+    name: "Mr. Ashutosh Wadhwa ",
+    designation: "",
+    affiliation: "RajHans International",
+    image: "/speakers/manmohan.jpg",
+  },
+];
+
+export const PANELISTS = [
+  {
+    id: 1,
+    name: "Mr. R.K. Sabharwal",
+    designation: "Panelist-MSME",
+    affiliation: "Sharp Chuks and Machinery",
+  },
+  {
+    id: 2,
+    name: "Mr. Sumanyu Agarwal",
+    designation: "Panelist-MSME",
+    affiliation: "Castpro",
+  },
+  {
+    id: 3,
+    name: "Mr. Japeesh Chander",
+    designation: "Panelist-MSME",
+    affiliation: "Dras Engineering Pvt. Ltd.",
+  },
 ];
 
 export const SPONSORS = [
@@ -267,6 +302,17 @@ export const SPONSORS = [
         name: "Agmatel + Keysight",
         logo: "/speakers/Agmatel+Keysight Logo.png",
         benefits: "Keynote speaking opportunity, premium branding, exclusive stall, logo on all materials, social media promotion",
+      },
+    ],
+  },
+  {
+    tier: "Associate Sponsor",
+    amount: "₹50,000",
+    color: "#94a3b8",
+    companies: [
+      {
+        name: "Swan International Pvt Ltd",
+        logo: "/speakers/swan-environmental.png",
       },
     ],
   },
@@ -302,19 +348,15 @@ export const COMMITTEE = {
   executiveGeneralChairs: [
     {
       name: "Dr. Mamta Khosla",
-      designation: "Dean, Industry & International Affairs",
+      designation: "Former Dean, Industry & International Affairs",
       image: "/organising/01-mamta-khosla.jpg",
     },
     {
       name: "Dr. Ajay Bansal",
-      designation: "Registrar, NIT Jalandhar",
+      designation: "Dean, Industry & International Affairs",
       image: "/organising/02-ajay-bansal.jpg",
     },
-    {
-      name: "Dr. Arun Khosla",
-      designation: "Department of ECE",
-      image: "/organising/03-arun-khosla.jpg",
-    },
+    
   ],
   programGeneralChairs: [
     {
@@ -322,25 +364,31 @@ export const COMMITTEE = {
       dept: "Department of Mathematics & Computing",
       image: "/organising/04-neha-yadav.jpg",
     },
+    { name: "Dr. Prangya Rajan Rout",     dept: "Dept. of Biotechnology", image: "/organising/06-prangya-rajan-rout.jpg" },
+    { name: "Dr. Saurabh Kango",          dept: "Dept. of Mechanical Engineering", image: "/organising/13-saurabh-kango.jpg" },
+
+    
+  ],
+  coordinators: [
+    {
+      name: "Dr. Arun Khosla",
+      dept: "Department of ECE",
+      image: "/organising/03-arun-khosla.jpg",
+    },
     {
       name: "Dr. Balwinder Raj",
       dept: "Department of ECE",
       image: "/organising/05-balwinder-raj.jpg",
     },
-  ],
-  coordinators: [
-    { name: "Dr. Prangya Rajan Rout",     dept: "Dept. of Biotechnology", image: "/organising/06-prangya-rajan-rout.jpg" },
     { name: "Dr. O.P. Verma",             dept: "Dept. of ICE", image: "/organising/07-op-verma.jpg" },
     { name: "Dr. Anupam Yadav",           dept: "Dept. of Mathematics & Computing", image: "/organising/08-anupam-yadav.jpeg" },
     { name: "Dr. Mahesh Patel",           dept: "Dept. of Civil Engineering", image: "/organising/09-mahesh-patel.jpg" },
     { name: "Dr. Nisha Chaurasia",        dept: "Dept. of IT", image: "/organising/10-nisha-chaurasia.jpeg" },
     { name: "Dr. Harimurugan",            dept: "Dept. of Electrical Engineering", image: "/organising/11-harimurugan.jpg" },
     { name: "Dr. Urvashi",               dept: "Dept. of Computer Science Engineering", image: "/organising/12-urvashi.jpg" },
-    { name: "Dr. Saurabh Kango",          dept: "Dept. of Mechanical Engineering", image: "/organising/13-saurabh-kango.jpg" },
     { name: "Dr. Narendra Kumar",         dept: "Dept. of IPE", image: "/organising/14-narendra-kumar.jpeg" },
-    { name: "Dr. Suneel Dutt",            dept: "Dept. of Physics", image: "/organising/15-suneel-dutt.jpg" },
     { name: "Dr. Palaniswamy N.K.",       dept: "Dept. of Textile Engineering", image: "/organising/16-palaniswamy-nk.jpg" },
-    { name: "Dr. Vickram Jeet Singh",     dept: "Dept. of Chemistry", image: "/organising/17-vickram-jeet-singh.jpg" },
+    { name: "Dr. Suneel Dutt",            dept: "Dept. of Physics", image: "/organising/15-suneel-dutt.jpg" },
     { name: "Dr. Nitin Naresh Pandhare", dept: "Dept. of Chemical Engineering", image: "/organising/18-nitin-naresh-pandhare.jpg" },
     { name: "Dr. Yaisna Rajkumari",       dept: "Dept. of Humanities & Management", image: "/organising/19-yaisna-rajkumari.jpeg" },
   ],
