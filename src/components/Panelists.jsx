@@ -14,9 +14,32 @@ function getInitials(name) {
     : parts[0][0];
 }
 
-function PanelistCard({ panelist, index }) {
+function PanelistPortrait({ panelist }) {
+  const [imageError, setImageError] = useState(false);
   const initials = getInitials(panelist.name);
 
+  if (!panelist.image || imageError) {
+    return (
+      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#1565C0]/25 border-2 border-white/25
+                      flex items-center justify-center font-display font-bold text-[#F5A623] text-2xl select-none">
+        {initials}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={panelist.image}
+      alt={panelist.name}
+      className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-2 border-white/25"
+      onError={() => setImageError(true)}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+}
+
+function PanelistCard({ panelist, index }) {
   return (
     <motion.div
       variants={fadeUp}
@@ -25,10 +48,7 @@ function PanelistCard({ panelist, index }) {
                  hover:bg-white/10 hover:border-[#F5A623]/30 transition-all duration-300
                  flex flex-col items-center text-center gap-3"
     >
-      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#1565C0]/25 border-2 border-white/25
-                      flex items-center justify-center font-display font-bold text-[#F5A623] text-2xl select-none">
-        {initials}
-      </div>
+      <PanelistPortrait panelist={panelist} />
 
       <div className="flex flex-col gap-1">
         <h3 className="font-display font-bold text-white text-base sm:text-[17px] leading-snug">

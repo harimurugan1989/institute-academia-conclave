@@ -40,14 +40,10 @@ export const OBJECTIVES = [
 ];
 
 export const THEMES = [
-  { id: 1, title: "Artificial Intelligence, Data Science & Machine Learning", icon: "🤖" },
-  { id: 2, title: "Industry 4.0 and Smart Manufacturing",                    icon: "🏭" },
-  { id: 3, title: "Sustainable Engineering and Green Technologies",           icon: "🌱" },
-  { id: 4, title: "Advanced Computing and Scientific Machine Learning",       icon: "💻" },
-  { id: 5, title: "Startups, Innovation, and Entrepreneurship",              icon: "💼" },
-  { id: 6, title: "Skill Development and Employability",                     icon: "📈" },
-  { id: 7, title: "Industry-Sponsored Research and Consultancy",             icon: "🔬" },
-  { id: 8, title: "Emerging Technologies and Future Directions",             icon: "🔭" },
+  { id: 1, title: "Semiconductor & Intelligent Systems", icon: "🤖" },
+  { id: 2, title: "AI, Data Science & Industrial Innovation",                    icon: "🏭" },
+  { id: 3, title: "Advanced Manufacturing, Process Engineering & Industrial Systems",           icon: "🌱" },
+  { id: 4, title: "Energy, Sustainability& Process Technologies",       icon: "💻" },
 ];
 
 export const ACTIVITIES = [
@@ -277,19 +273,28 @@ export const PANELISTS = [
     name: "Mr. Rajnikant Paghadar",
     designation: "Head R&D",
     affiliation: "Rhino Machines Pvt. Ltd., Anand, Gujarat",
-    image: "/speakers/Rajnikant Paghadar.jpeg",
+    image: "/speakers/26_rajnikanth.png",
   },
   {
     id: 2,
     name: "Mr. Rajesh Sabharwal",
     designation: "President Operations",
     affiliation: "Sharp Chucks and Machines Ltd",
+    image: "/speakers/25_rajesh.png",
   },
   {
     id: 3,
     name: "Mr. Japeesh Chander",
     designation: "DGM Corporate",
     affiliation: "DRAS Engineering Pvt. Ltd. (Sonalika Group)",
+    image: "/speakers/27_jaspreet.png",
+  },
+  {
+    id: 4,
+    name: "Dr. P K Verma",
+    designation: "Director",
+    affiliation: "Centre for Hand Tools",
+    image: "/speakers/28_verma.png",
   },
 ];
 
@@ -345,12 +350,6 @@ export const SPONSORS = [
 ];
 
 export const COMMITTEE = {
-  chiefPatron: {
-    role: "Chief Patron",
-    name: "Prof. J.S. Yadav",
-    designation: "Chairperson BOG, NIT Jalandhar",
-    image: "/organising/chief-patron-js-yadav.jpg",
-  },
   patron: {
     role: "Patron",
     name: "Prof. B.K. Kanaujia",

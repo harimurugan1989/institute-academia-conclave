@@ -169,27 +169,19 @@ export default function Committee() {
           </h2>
         </motion.div>
 
-        {/* Chief Patron + Patron */}
+        {/* Patron */}
         <motion.div
           variants={{ show: { transition: { staggerChildren: 0.12 } } }}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-8"
+          className="flex justify-center mb-8"
         >
-          <LeaderCard
-            gold
-            role={COMMITTEE.chiefPatron.role}
-            name={COMMITTEE.chiefPatron.name}
-            designation={COMMITTEE.chiefPatron.designation}
-            image={COMMITTEE.chiefPatron.image}
-          />
           <LeaderCard
             gold
             role={COMMITTEE.patron.role}
             name={COMMITTEE.patron.name}
             designation={COMMITTEE.patron.designation}
             image={COMMITTEE.patron.image}
-            delay={0.1}
           />
         </motion.div>
 

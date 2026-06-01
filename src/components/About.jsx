@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 
 const STATS = [
   { value: "2",  label: "Days",              icon: "📅", showPlus: false },
-  { value: "8",  label: "Technical Tracks",  icon: "🧩", showPlus: true },
+  { value: "4",  label: "Technical Tracks",  icon: "🧩", showPlus: false },
   { value: "5",  label: "Event Formats",     icon: "🎯", showPlus: true },
   { value: "3",  label: "Participant Types", icon: "👥", showPlus: true },
 ];
