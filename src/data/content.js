@@ -236,6 +236,7 @@ export const SPEAKERS = [
     name: "Mr. Sanjeev Kumar",
     designation: "Associate Vice President",
     affiliation: "Adani Ports & SEZ Ltd.",
+    image: "/speakers/18_sanjeev.png",
   },
   {
     id: 21,
